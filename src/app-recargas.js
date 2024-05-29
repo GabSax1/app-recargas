@@ -1,6 +1,7 @@
-import { LitElement, html, css } from "lit";
-import "../src/nuevo-contacto";
-import "../src/lista-contactos";
+import { LitElement, html, css } from 'lit';
+import '../src/nuevo-contacto';
+import '../src/lista-contactos';
+import '../src/eit-icon';
 
 class AppRecargas extends LitElement {
   static properties = {
@@ -53,21 +54,18 @@ class AppRecargas extends LitElement {
 
   render() {
     return html`
-      <div class="${this.currentPage === "inicio" ? " " : "hidden"}">
-        <nav>
-          <!-- componente titulo -->
-          <div>
-            <h2>Para</h2>
-            <h3>Selecciona un destino para la recarga movil</h3>
-          </div>
-          <button @click="${() => this.navigate("nuevoContacto")}">
-            Nuevo Contacto
-          </button>
-          <button @click="${() => this.navigate("listaContactos")}">
-            Lista de Contactos
-          </button>
-        </nav>
-      </div>
+    
+
+     <div class="${this.currentPage === 'inicio' ? ' ' : 'hidden'}">
+      <nav>
+        <!-- componente titulo -->
+        <div>
+          <h2>Para</h2>
+          <h3>Selecciona un destino para la recarga movil</h3>
+        </div>
+        <h3><eit-icon icon="add" @click="${() => this.navigate('nuevoContacto')}"></eit-icon>Nuevo</h3>
+        <h3><eit-icon icon="contacts" @click="${() => this.navigate('listaContactos')}"></eit-icon>Contactos guardados</h3>
+     </div>
 
       <div class="${this.currentPage === "nuevoContacto" ? " " : "hidden"}">
         <!-- componente titulo -->
