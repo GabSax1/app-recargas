@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit-element";
-import "../src/elemento-lista/elemento-lista";
+import "../elemento-lista/elemento-lista";
 
 class listaContactos extends LitElement {
   static get properties() {

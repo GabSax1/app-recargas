@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import '../src/nuevo-contacto';
-import '../src/lista-contactos';
+import '../src/lista-contactos/lista-contactos';
 import '../src/iconos/eit-icon';
 
 class AppRecargas extends LitElement {
