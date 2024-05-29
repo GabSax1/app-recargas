@@ -28,7 +28,10 @@ class listaContactos extends LitElement {
     return html`
       <div class="${this.currentView === "listaContactos" ? "" : "hidden"}">
         ${this.renderList()}
+<<<<<<< HEAD:src/lista-contactos/lista-contactos.js
       
+=======
+>>>>>>> 782f91763ff545bba6f0bea6dca901aeb5137997:src/lista-contactos.js
       </div>
 
       <div class="${this.currentView === "modificarContacto" ? "" : "hidden"}">
@@ -38,6 +41,7 @@ class listaContactos extends LitElement {
   }
   renderList() {
     return html`
+      <p>Lista de contactos</p>
       ${this.contactos.map(
         (contacto) => html`
           <elemento-lista
