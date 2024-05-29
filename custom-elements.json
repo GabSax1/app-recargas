@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/app-recargas.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AppRecargas",
+          "members": [
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "string"
+              },
+              "default": "'My app'",
+              "privacy": "public",
+              "attribute": "header"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "header",
+              "fieldName": "header"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "app-recargas",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "app-recargas",
+          "declaration": {
+            "name": "AppRecargas",
+            "module": "src/app-recargas.js"
+          }
+        }
+      ]
+    }
+  ]
+}
