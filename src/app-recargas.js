@@ -75,8 +75,8 @@ class AppRecargas extends LitElement {
 
       <div class="${this.currentPage === "listaContactos" ? " " : "hidden"}">
         <!-- componente titulo -->
-        <lista-contactos .contactos=${this.contactos}></lista-contactos>
-        <button @click="${() => this.navigate("inicio")}">Regresar</button>
+        <lista-contactos .contactos=${this.contactos} @navigate="${(e) => this.navigate(e.detail.page)}"></lista-contactos>
+        
       </div>
     `;
   }
