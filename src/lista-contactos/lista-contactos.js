@@ -40,6 +40,7 @@ class listaContactos extends LitElement {
       <p>Lista de contactos</p>
       ${this.contactos.map(
         (contacto) => html`
+
           <elemento-lista
             name="${contacto.name}"
             phone="${contacto.phone}"
