@@ -24,18 +24,16 @@ class ElementoLista extends LitElement {
         <p class="item">${this.name}</p>
         <p class="item">${this.phone}</p>
         <p class="item">${this.company}</p>
-        <button
-          class="link"
-          @click="${() => this.emitEvent("modificarContacto")}"
-        >
+        <boton-general
+        class="link"
+        @click="${() => this.emitEvent("modificarContacto")}">
           Modificar
-        </button>
-        <button
-          class="link"
-          @click="${() => this.emitEvent("recargarContacto")}"
-        >
+        </boton-general>
+        <boton-general
+        class="link"
+        @click="${() => this.emitEvent("recargarContacto")}">
           Recargar
-        </button>
+        </boton-general>
       </div>
     `;
   }

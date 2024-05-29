@@ -29,8 +29,7 @@ class AppRecargas extends LitElement {
     div {
       text-align: start;
     }
-    #añadir {
-      background-color: aqua;
+    .añadir {
       padding: 0.8rem;
       border-radius: 0.5rem;
     }
@@ -69,14 +68,14 @@ class AppRecargas extends LitElement {
         </div>
         <h3>
           <boton-general
-            id="añadir"
+            class="añadir"
             @click="${() => this.navigate("nuevoContacto")}"
             ><eit-icon icon="add"></eit-icon>Nuevo</boton-general
           >
         </h3>
         <h3>
           <boton-general
-            id="añadir"
+            class="añadir"
             @click="${() => this.navigate("listaContactos")}"
           ><eit-icon icon="contacts"></eit-icon>Contactos guardados
           </boton-general>
