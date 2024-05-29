@@ -32,9 +32,11 @@ class listaContactos extends LitElement {
 
       <div class="${this.currentView === "modificarContacto" ? "" : "hidden"}">
         <h1>Componente modificar contacto</h1>
+        <button @click="${() => this.navigateList("listaContactos")}">regresar</button>
       </div>
       <div class="${this.currentView === "recargarContacto" ? "" : "hidden"}">
         <h1>Componente de recarga telefonica</h1>
+        <button @click="${() => this.navigateList("listaContactos")}">regresar</button>
       </div>
     `;
   }
