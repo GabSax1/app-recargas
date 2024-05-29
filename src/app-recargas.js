@@ -1,7 +1,7 @@
-import { LitElement, html, css } from "lit";
-import "../src/nuevo-contacto";
-import "../src/lista-contactos";
-import "../src/eit-icon";
+import { LitElement, html, css } from 'lit';
+import '../src/nuevo-contacto';
+import '../src/lista-contactos/lista-contactos';
+import '../src/iconos/eit-icon';
 
 class AppRecargas extends LitElement {
   static properties = {
@@ -76,8 +76,8 @@ class AppRecargas extends LitElement {
 
       <div class="${this.currentPage === "listaContactos" ? " " : "hidden"}">
         <!-- componente titulo -->
-        <lista-contactos .contactos=${this.contactos}></lista-contactos>
-        <button @click="${() => this.navigate("inicio")}">Regresar</button>
+        <lista-contactos .contactos=${this.contactos} @navigate="${(e) => this.navigate(e.detail.page)}"></lista-contactos>
+        
       </div>
     `;
   }

@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { stylesElementos } from "./elemento-lista-styles";
-
+import '../iconos/eit-icon'
 class ElementoLista extends LitElement {
   static get properties() {
     return {
@@ -21,6 +21,7 @@ class ElementoLista extends LitElement {
   render() {
     return html`
       <div class="container">
+        <eit-icon icon="person"></eit-icon>
         <p class="item">${this.name}</p>
         <p class="item">${this.phone}</p>
         <p class="item">${this.company}</p>
@@ -41,7 +42,7 @@ class ElementoLista extends LitElement {
   }
   emitEvent(page) {
     this.dispatchEvent(
-      new CustomEvent("navigate", {
+      new CustomEvent("navigateList", {
         detail: { page },
         composed: true,
         bubbles: true,

@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit-element";
-import "../src/elemento-lista/elemento-lista";
-
+import "../elemento-lista/elemento-lista";
+import "../app-recargas";
 class listaContactos extends LitElement {
   static get properties() {
     return {
@@ -32,6 +32,11 @@ class listaContactos extends LitElement {
 
       <div class="${this.currentView === "modificarContacto" ? "" : "hidden"}">
         <h1>Componente modificar contacto</h1>
+        <button @click="${() => this.navigateList("listaContactos")}">regresar</button>
+      </div>
+      <div class="${this.currentView === "recargarContacto" ? "" : "hidden"}">
+        <h1>Componente de recarga telefonica</h1>
+        <button @click="${() => this.navigateList("listaContactos")}">regresar</button>
       </div>
     `;
   }
@@ -40,18 +45,29 @@ class listaContactos extends LitElement {
       <p>Lista de contactos</p>
       ${this.contactos.map(
         (contacto) => html`
+
           <elemento-lista
             name="${contacto.name}"
             phone="${contacto.phone}"
             company="${contacto.company}"
-            @navigate="${(e) => this.navigate(e.detail.page)}"
+            @navigateList="${(e) => this.navigateList(e.detail.page)}"
           ></elemento-lista>
         `
       )}
+      <button @click="${() =>this.emitEvent("inicio")}">Regresar</button>
     `;
   }
-  navigate(page) {
+  navigateList(page) {
     this.currentView = page;
+  }
+  emitEvent(page) {
+    this.dispatchEvent(
+      new CustomEvent("navigate", {
+        detail: { page },
+        composed: true,
+        bubbles: true,
+      })
+    );
   }
 }
 
