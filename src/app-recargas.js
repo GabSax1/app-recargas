@@ -14,7 +14,6 @@ class AppRecargas extends LitElement {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: flex-start;
       font-size: calc(10px + 2vmin);
       color: #1a2b42;
@@ -56,15 +55,17 @@ class AppRecargas extends LitElement {
     return html`
     
 
-     <div class="${this.currentPage === 'inicio' ? ' ' : 'hidden'}">
+     <div class="${this.currentPage === "inicio" ? " " : "hidden"}">
       <nav>
         <!-- componente titulo -->
         <div>
           <h2>Para</h2>
           <h3>Selecciona un destino para la recarga movil</h3>
         </div>
-        <h3><eit-icon icon="add" @click="${() => this.navigate('nuevoContacto')}"></eit-icon>Nuevo</h3>
-        <h3><eit-icon icon="contacts" @click="${() => this.navigate('listaContactos')}"></eit-icon>Contactos guardados</h3>
+        <h3><eit-icon icon="add" @click="${() =>
+          this.navigate("nuevoContacto")}"></eit-icon>Nuevo</h3>
+        <h3><eit-icon icon="contacts" @click="${() =>
+          this.navigate("listaContactos")}"></eit-icon>Contactos guardados</h3>
      </div>
 
       <div class="${this.currentPage === "nuevoContacto" ? " " : "hidden"}">
