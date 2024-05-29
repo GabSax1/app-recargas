@@ -1,12 +1,12 @@
-import { LitElement, html, css } from 'lit';
-import '../src/nuevo-contacto';
-import '../src/lista-contactos';
+import { LitElement, html, css } from "lit";
+import "../src/nuevo-contacto";
+import "../src/lista-contactos";
 
 class AppRecargas extends LitElement {
   static properties = {
-    currentPage:{ type: String},
-    contactos: {type: Array}
-  }
+    currentPage: { type: String },
+    contactos: { type: Array },
+  };
 
   static styles = css`
     :host {
@@ -20,72 +20,71 @@ class AppRecargas extends LitElement {
       max-width: 960px;
       margin: 0 auto;
       text-align: center;
-      
     }
-    .hidden{
+    .hidden {
       display: none;
     }
-    div{
-      text-align:start
+    div {
+      text-align: start;
     }
   `;
 
   constructor() {
     super();
-    this.currentPage = 'inicio';
+    this.currentPage = "inicio";
     this.contactos = [
       {
         name: "Gabriel",
         phone: "5581562066",
-        company: "Telcel"
+        company: "Telcel",
       },
       {
         name: "Fernando",
         phone: "5581565768",
-        company: "Telcel"
+        company: "Telcel",
       },
       {
         name: "Andrea",
         phone: "5581563099",
-        company: "Telcel"
-      }
-
-    ]
+        company: "Telcel",
+      },
+    ];
   }
 
   render() {
     return html`
-    
+      <div class="${this.currentPage === "inicio" ? " " : "hidden"}">
+        <nav>
+          <!-- componente titulo -->
+          <div>
+            <h2>Para</h2>
+            <h3>Selecciona un destino para la recarga movil</h3>
+          </div>
+          <button @click="${() => this.navigate("nuevoContacto")}">
+            Nuevo Contacto
+          </button>
+          <button @click="${() => this.navigate("listaContactos")}">
+            Lista de Contactos
+          </button>
+        </nav>
+      </div>
 
-     <div class="${this.currentPage === 'inicio' ? ' ' : 'hidden'}">
-      <nav>
+      <div class="${this.currentPage === "nuevoContacto" ? " " : "hidden"}">
         <!-- componente titulo -->
-        <div>
-          <h2>Para</h2>
-          <h3>Selecciona un destino para la recarga movil</h3>
-        </div>
-        <button @click="${() => this.navigate('nuevoContacto')}">Nuevo Contacto</button>
-        <button @click="${() => this.navigate('listaContactos')}">Lista de Contactos</button>
-      </nav>
-     </div>
+        <nuevo-contacto></nuevo-contacto>
+        <button @click="${() => this.navigate("inicio")}">Regresar</button>
+      </div>
 
-     <div class="${this.currentPage === 'nuevoContacto' ? ' ' : 'hidden'}">
-     <!-- componente titulo -->
-      <nuevo-contacto></nuevo-contacto>
-      <button @click="${() => this.navigate('inicio')}">Regresar</button>
-     </div>
-
-     <div class="${this.currentPage === 'listaContactos' ? ' ' : 'hidden'}">
-     <!-- componente titulo -->
-      <lista-contactos></lista-contactos>
-      <button @click="${() => this.navigate('inicio')}">Regresar</button>
-     </div>
-      
+      <div class="${this.currentPage === "listaContactos" ? " " : "hidden"}">
+        <!-- componente titulo -->
+        <lista-contactos .contactos=${this.contactos}></lista-contactos>
+        <button @click="${() => this.navigate("inicio")}">Regresar</button>
+      </div>
     `;
   }
-  navigate(page){
+  navigate(page) {
     this.currentPage = page;
   }
 }
 
-customElements.define('app-recargas', AppRecargas);
+customElements.define("app-recargas", AppRecargas);
