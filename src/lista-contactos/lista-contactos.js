@@ -3,28 +3,30 @@ import { LitElement, html, css } from "lit-element";
 import "../elemento-lista/elemento-lista";
 import "../app-recargas";
 import "../modificar-contacto/modificar-component";
+import "../recarga-component/recarga-component";  
 
 class ListaContactos extends LitElement {
   static get properties() {
     return {
       contactos: { type: Array },
-      currentView: { type: String },
-      selectedContact: { type: Object }
+      currentView: { type: String },  // Propiedad para manejar la vista actual
+      selectedContact: { type: Object }  // Propiedad para manejar el contacto seleccionado
     };
   }
 
   constructor() {
     super();
-    this.currentView = "listaContactos";
-    this.selectedContact = null;
+    this.currentView = "listaContactos";  // Inicializar la vista actual como 'listaContactos'
+    this.selectedContact = null;  // Inicializar el contacto seleccionado como null
   }
 
   static get styles() {
     return css`
       :host {
+        display: block;
       }
       .hidden {
-        display: none;
+        display: none;  // Clase para ocultar elementos
       }
     `;
   }
@@ -34,7 +36,7 @@ class ListaContactos extends LitElement {
     this.contactos = this.contactos.map(contact =>
       contact.phone === updatedContact.phone ? updatedContact : contact
     );
-    this.navigateList('listaContactos');
+    this.navigateList('listaContactos');  // Volver a la vista de lista de contactos
   }
 
   render() {
@@ -52,10 +54,10 @@ class ListaContactos extends LitElement {
           @cancel-modify="${() => this.navigateList('listaContactos')}">
         </modificar-component>
       </div>
+      
       <div class="${this.currentView === "recargarContacto" ? "" : "hidden"}">
-        <componente-titulo titulo="Recarga telefónica"></componente-titulo>
-        <h1>Componente de recarga telefonica</h1>
-        <button @click="${() => this.navigateList("listaContactos")}">regresar</button>
+        <recarga-component .contact="${this.selectedContact}"></recarga-component>  <!-- Pasar el contacto seleccionado -->
+        <button @click="${() => this.navigateList("listaContactos")}">Regresar</button>
       </div>
     `;
   }
@@ -76,9 +78,9 @@ class ListaContactos extends LitElement {
   }
 
   navigateList(page, contact = null) {
-    this.currentView = page;
-    if (page === 'modificarContacto') {
-      this.selectedContact = contact;
+    this.currentView = page;  // Cambiar la vista actual
+    if (page === 'modificarContacto' || page === 'recargarContacto') {
+      this.selectedContact = contact;  // Establecer el contacto seleccionado
     }
   }
 
@@ -91,4 +93,4 @@ class ListaContactos extends LitElement {
   }
 }
 
-customElements.define("lista-contactos", ListaContactos);
+customElements.define("lista-contactos", ListaContactos); 

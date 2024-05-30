@@ -5,6 +5,10 @@ import "../src/iconos/eit-icon";
 import "../src/boton/boton-general";
 import "../src/componente-titulo/componente-titulo";
 import "../src/componente-agregar-contacto/componente-agregar-contacto";
+import "../src/recarga-component/recarga-component";
+import "../src/recarga-completa/recarga-completa"
+
+
 
 
 class AppRecargas extends LitElement {
@@ -59,6 +63,18 @@ class AppRecargas extends LitElement {
     ];
   }
 
+  // Nuevo: Añadir un event listener después de que el componente se haya actualizado por primera vez
+  firstUpdated() {
+    this.addEventListener('recarga-confirmada', this.handleRecargaConfirmada);
+  }
+
+  // Nuevo: Manejar el evento personalizado 'recarga-confirmada' y cambiar la vista a 'recargaCompleta'
+  handleRecargaConfirmada(e) {
+    const { monto } = e.detail;
+    console.log(`Recarga confirmada: ${monto}`);
+    this.currentPage = 'recargaCompleta';
+  }
+
   render() {
     return html`
       <div class="${this.currentPage === "inicio" ? " " : "hidden"}">
@@ -89,6 +105,10 @@ class AppRecargas extends LitElement {
       
         <lista-contactos .contactos=${this.contactos} @navigate="${(e) => this.navigate(e.detail.page)}"></lista-contactos>
       </div>
+      <div class="${this.currentPage === 'recargaCompleta' ? '' : 'hidden'}">
+        <recarga-completa></recarga-completa>
+        <button @click="${() => this.navigate('inicio')}">Volver a inicio</button>
+      </div>
     `;
   }
 
@@ -104,3 +124,5 @@ class AppRecargas extends LitElement {
 }
 
 customElements.define("app-recargas", AppRecargas);
+
+
