@@ -32,7 +32,7 @@ class ElementoLista extends LitElement {
         </boton-general>
         <boton-general
         class="link"
-        @click="${() => this.emitEvent("recargarContacto")}">
+        @click="${() => this.emitEvent("recargarContacto",)}">
           Recargar
         </boton-general>
       </div>
