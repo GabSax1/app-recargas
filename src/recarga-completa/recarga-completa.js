@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit-element";
-import "../eit-icon";
+import "../iconos/eit-icon";
 
 class RecargaCompleta extends LitElement {
   static get properties() {
