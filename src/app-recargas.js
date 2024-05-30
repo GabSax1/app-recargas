@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit-element";
-import "../src/nuevo-contacto";
+
 import "../src/lista-contactos/lista-contactos";
 import "../src/iconos/eit-icon";
 import "../src/boton/boton-general";
