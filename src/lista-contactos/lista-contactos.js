@@ -52,6 +52,11 @@ class ListaContactos extends LitElement {
           @cancel-modify="${() => this.navigateList('listaContactos')}">
         </modificar-component>
       </div>
+      <div class="${this.currentView === "recargarContacto" ? "" : "hidden"}">
+        <componente-titulo titulo="Recarga telefónica"></componente-titulo>
+        <h1>Componente de recarga telefonica</h1>
+        <button @click="${() => this.navigateList("listaContactos")}">regresar</button>
+      </div>
     `;
   }
 
