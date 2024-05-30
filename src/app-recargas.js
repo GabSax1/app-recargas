@@ -1,4 +1,3 @@
-
 import { LitElement, html, css } from "lit-element";
 
 import "../src/lista-contactos/lista-contactos";
@@ -6,6 +5,7 @@ import "../src/iconos/eit-icon";
 import "../src/boton/boton-general";
 import "../src/componente-titulo/componente-titulo";
 import "../src/componente-agregar-contacto/componente-agregar-contacto";
+
 
 class AppRecargas extends LitElement {
   static properties = {
@@ -69,25 +69,25 @@ class AppRecargas extends LitElement {
             <h3>Selecciona un destino para la recarga móvil</h3>
           </div>
           <h3>
-            <eit-icon icon="add" @click="${() => this.navigate('nuevoContacto')}"></eit-icon>
+            <eit-icon icon="add" @click="${() => this.navigate("nuevoContacto")}"></eit-icon>
             Nuevo
           </h3>
           <h3>
-            <eit-icon icon="contacts" @click="${() => this.navigate('listaContactos')}"></eit-icon>
+            <eit-icon icon="contacts" @click="${() => this.navigate("listaContactos")}"></eit-icon>
             Contactos guardados
           </h3>
         </nav>
       </div>
-      <div class="${this.currentPage === "listaContactos" ? " " : "hidden"}">
-        <lista-contactos
-          .contactos="${this.contactos}"
-          @navigate="${this.handleNavigate}">
-        </lista-contactos>
-      </div>
+
       <div class="${this.currentPage === "nuevoContacto" ? " " : "hidden"}">
-        <componente-agregar-contacto
-          @navigate="${this.handleNavigate}">
-        </componente-agregar-contacto>
+        <componente-titulo titulo="Nuevo Celular"></componente-titulo>
+        <componente-agregar-contacto @guardar-contacto="${this.guardarContacto}"></componente-agregar-contacto>
+        <boton-general @click="${() => this.navigate("inicio")}">Regresar</boton-general>
+      </div>
+
+      <div class="${this.currentPage === "listaContactos" ? " " : "hidden"}">
+      
+        <lista-contactos .contactos=${this.contactos} @navigate="${(e) => this.navigate(e.detail.page)}"></lista-contactos>
       </div>
     `;
   }
@@ -96,8 +96,10 @@ class AppRecargas extends LitElement {
     this.currentPage = page;
   }
 
-  handleNavigate(event) {
-    this.currentPage = event.detail.page;
+  guardarContacto(e) {
+    const nuevoContacto = e.detail;
+    this.contactos = [...this.contactos, nuevoContacto];
+    this.navigate("listaContactos");
   }
 }
 
