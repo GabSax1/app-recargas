@@ -4,6 +4,7 @@ import "../src/lista-contactos/lista-contactos";
 import "../src/iconos/eit-icon";
 import "../src/boton/boton-general";
 import "../src/componente-titulo/componente-titulo";
+import "../src/componente-agregar-contacto/componente-agregar-contacto";
 
 class AppRecargas extends LitElement {
   static properties = {
@@ -76,7 +77,8 @@ class AppRecargas extends LitElement {
 
       <div class="${this.currentPage === "nuevoContacto" ? " " : "hidden"}">
       <componente-titulo titulo="Nuevo Celular"></componente-titulo>
-        <nuevo-contacto></nuevo-contacto>
+        <!-- <nuevo-contacto></nuevo-contacto> -->
+        <componente-agregar-contacto></componente-agregar-contacto>
         <boton-general @click="${() => this.navigate("inicio")}"
           >Regresar</boton-general
         >
