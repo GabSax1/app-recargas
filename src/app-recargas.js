@@ -3,6 +3,7 @@ import "../src/nuevo-contacto";
 import "../src/lista-contactos/lista-contactos";
 import "../src/iconos/eit-icon";
 import "../src/boton/boton-general";
+import "../src/componente-titulo/componente-titulo";
 
 class AppRecargas extends LitElement {
   static properties = {
@@ -62,7 +63,7 @@ class AppRecargas extends LitElement {
 
      <div class="${this.currentPage === "inicio" ? " " : "hidden"}">
       <nav>
-        <!-- componente titulo -->
+        <componente-titulo></componente-titulo>
         <div>
           <h2>Para</h2>
           <h3>Selecciona un destino para la recarga movil</h3>
