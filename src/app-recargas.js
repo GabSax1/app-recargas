@@ -63,7 +63,7 @@ class AppRecargas extends LitElement {
 
      <div class="${this.currentPage === "inicio" ? " " : "hidden"}">
       <nav>
-        <componente-titulo></componente-titulo>
+        <componente-titulo titulo="Recargas y paquetes"></componente-titulo>
         <div>
           <h2>Para</h2>
           <h3>Selecciona un destino para la recarga movil</h3>
@@ -75,7 +75,7 @@ class AppRecargas extends LitElement {
      </div>
 
       <div class="${this.currentPage === "nuevoContacto" ? " " : "hidden"}">
-        <!-- componente titulo -->
+      <componente-titulo titulo="Nuevo Celular"></componente-titulo>
         <nuevo-contacto></nuevo-contacto>
         <boton-general @click="${() => this.navigate("inicio")}"
           >Regresar</boton-general
@@ -83,7 +83,7 @@ class AppRecargas extends LitElement {
       </div>
 
       <div class="${this.currentPage === "listaContactos" ? " " : "hidden"}">
-        <!-- componente titulo -->
+      <componente-titulo titulo="Contactos guardados"></componente-titulo>
         <lista-contactos .contactos=${this.contactos} @navigate="${(e) => this.navigate(e.detail.page)}"></lista-contactos>
         
       </div>
