@@ -8,7 +8,7 @@ class RecargaCompleta extends LitElement {
 
   constructor() {
     super();
-    this.recargaRealizada = false;
+    this.recargaRealizada = true;
   }
 
   static get styles() {

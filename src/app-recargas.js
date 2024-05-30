@@ -1,4 +1,4 @@
-import { LitElement, html, css } from "lit";
+import { LitElement, html, css } from "lit-element";
 import "../src/nuevo-contacto";
 import "../src/lista-contactos/lista-contactos";
 import "../src/iconos/eit-icon";
@@ -76,7 +76,7 @@ class AppRecargas extends LitElement {
           <boton-general
             class="añadir"
             @click="${() => this.navigate("listaContactos")}"
-          ><eit-icon icon="contacts"></eit-icon>Contactos guardados
+            ><eit-icon icon="contacts"></eit-icon>Contactos guardados
           </boton-general>
         </h3>
       </div>
@@ -85,19 +85,16 @@ class AppRecargas extends LitElement {
         <!-- componente titulo -->
         <nuevo-contacto></nuevo-contacto>
         <boton-general @click="${() => this.navigate("inicio")}"
-        >Regresar</boton-general>
+          >Regresar</boton-general
+        >
       </div>
 
       <div class="${this.currentPage === "listaContactos" ? " " : "hidden"}">
         <!-- componente titulo -->
-<<<<<<< HEAD
-        <lista-contactos .contactos=${this.contactos} @navigate="${(e) => this.navigate(e.detail.page)}"></lista-contactos>
-        
-=======
         <lista-contactos .contactos=${this.contactos}></lista-contactos>
         <boton-general @click="${() => this.navigate("inicio")}"
-        >Regresar</boton-general>
->>>>>>> button
+          >Regresar</boton-general
+        >
       </div>
     `;
   }
