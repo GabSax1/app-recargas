@@ -52,3 +52,4 @@ class ElementoLista extends LitElement {
 }
 
 customElements.define("elemento-lista", ElementoLista);
+ 
