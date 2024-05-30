@@ -1,4 +1,3 @@
-
 import { LitElement, html, css } from 'lit-element';
 
 class ModificarComponent extends LitElement {
@@ -31,17 +30,19 @@ class ModificarComponent extends LitElement {
         margin-bottom: 8px;
         font-weight: bold;
       }
-      input {
+      input, select {
         width: 100%;
         padding: 8px;
         box-sizing: border-box;
+      }
+      button {
+        margin-right: 8px;
       }
     `;
   }
 
   handleInputChange(e) {
     const { name, value } = e.target;
-    // Actualizar el estado del contacto
     this.contact = { ...this.contact, [name]: value };
   }
 
@@ -55,7 +56,7 @@ class ModificarComponent extends LitElement {
 
   render() {
     return html`
-      <h1>Modificar Contacto</h1>
+      <h1>Contacto</h1>
       <label>
         Nombre:
         <input type="text" name="name" .value="${this.contact.name}" @input="${this.handleInputChange}">
@@ -66,7 +67,14 @@ class ModificarComponent extends LitElement {
       </label>
       <label>
         Compañía:
-        <input type="text" name="company" .value="${this.contact.company}" @input="${this.handleInputChange}">
+        <select name="company" .value="${this.contact.company}" @change="${this.handleInputChange}">
+          <option value="">Seleccione una compañía</option>
+          <option value="Movistar">Movistar</option>
+          <option value="Telcel">Telcel</option>
+          <option value="AT&T">AT&T</option>
+          <option value="Unefon">Unefon</option>
+          <option value="Virgin Mobile">Virgin Mobile</option>
+        </select>
       </label>
       <button @click="${this.handleSave}">Guardar</button>
       <button @click="${() => this.dispatchEvent(new CustomEvent('cancel-modify', { bubbles: true, composed: true }))}">Cancelar</button>
