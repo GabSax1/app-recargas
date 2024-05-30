@@ -28,6 +28,7 @@ class listaContactos extends LitElement {
     return html`
       <div class="${this.currentView === "listaContactos" ? "" : "hidden"}">
         ${this.renderList()}
+
       </div>
 
       <div class="${this.currentView === "modificarContacto" ? "" : "hidden"}">
