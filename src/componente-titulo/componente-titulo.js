@@ -44,7 +44,7 @@ export class ComponenteTitulo extends LitElement {
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
-                background-image: url(../assets_lit/close3.svg);
+                background-image: url(../assets/close3.svg);
                 cursor: pointer;
             }
 
@@ -73,12 +73,10 @@ export class ComponenteTitulo extends LitElement {
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
         </head>
             <div class="header header--flex">
-                <!-- __title--inicio
-                --inicio -->
                 <span class="header__title header__title--inicio">${this.titulo}</span>
-                <div class="${this.titulo === "Recargas y paquetes" ? "hidden":"header__button" }">
+                <!-- <div class="${this.titulo === "Recargas y paquetes" ? "hidden":"header__button" }">
                     <span class="header__icon"></span>
-                </div>
+                </div> -->
             </div>
         `;
     }
