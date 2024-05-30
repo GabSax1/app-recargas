@@ -5,6 +5,7 @@ import "../src/iconos/eit-icon";
 import "../src/boton/boton-general";
 import "../src/componente-titulo/componente-titulo";
 
+
 class AppRecargas extends LitElement {
   static properties = {
     currentPage: { type: String },
@@ -83,7 +84,7 @@ class AppRecargas extends LitElement {
       </div>
 
       <div class="${this.currentPage === "listaContactos" ? " " : "hidden"}">
-      <componente-titulo titulo="Contactos guardados"></componente-titulo>
+      
         <lista-contactos .contactos=${this.contactos} @navigate="${(e) => this.navigate(e.detail.page)}"></lista-contactos>
         
       </div>

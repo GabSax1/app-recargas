@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit-element";
 import "../elemento-lista/elemento-lista";
 import "../app-recargas";
+import "../modificar-contacto/modificar-component";
 class listaContactos extends LitElement {
   static get properties() {
     return {
@@ -27,6 +28,7 @@ class listaContactos extends LitElement {
   render() {
     return html`
       <div class="${this.currentView === "listaContactos" ? "" : "hidden"}">
+      <componente-titulo titulo="Contactos guardados"></componente-titulo>
         ${this.renderList()}
 
       </div>
@@ -34,10 +36,16 @@ class listaContactos extends LitElement {
       <div class="${this.currentView === "modificarContacto" ? "" : "hidden"}">
       <componente-titulo titulo="Modificar Contacto"></componente-titulo>
         <h1>Componente modificar contacto</h1>
+        <modificar-component
+          .contact="${this.selectedContact}"
+          @save-contact="${this.handleSaveContact}"
+          @cancel-modify="${() => this.navigateList('listaContactos')}">
+        </modificar-component>
+        
         <button @click="${() => this.navigateList("listaContactos")}">regresar</button>
       </div>
       <div class="${this.currentView === "recargarContacto" ? "" : "hidden"}">
-        <componente-titulo titulo="Modificar Contacto"></componente-titulo>
+        <componente-titulo titulo="Recarga telefónica"></componente-titulo>
         <h1>Componente de recarga telefonica</h1>
         <button @click="${() => this.navigateList("listaContactos")}">regresar</button>
       </div>
