@@ -56,29 +56,14 @@ export class ComponenteTitulo extends LitElement {
 
     static get properties() {
         return {
-            header1: { type: String },
-            header2: { type: String },
-            header3: { type: String },
-            header4: { type: String },
-            header5: { type: String },
-            header6: { type: String },
-            currentView: {type: String}
+            titulo: { type: String },
         };
     }
 
     constructor() {
         super();
-    
-        this.header1 = 'Recargas y paquetes';
-        this.header2 = 'Nuevo Celular';
-        this.header3 = 'Contactos guardados';
-        this.header4 = 'Recargar';
-        this.header5 = 'Modificar contacto';
-        this.currentView = 'Recargas y paquetes';
+        this.titulo = '';
     }
-
-
-
 
     render() {
         return html`
@@ -90,8 +75,8 @@ export class ComponenteTitulo extends LitElement {
             <div class="header header--flex">
                 <!-- __title--inicio
                 --inicio -->
-                <span class="header__title header__title--inicio">${this.header1}</span>
-                <div class="${this.currentView === "Recargas y paquetes" ? "hidden":"header__button" }">
+                <span class="header__title header__title--inicio">${this.titulo}</span>
+                <div class="${this.titulo === "Recargas y paquetes" ? "hidden":"header__button" }">
                     <span class="header__icon"></span>
                 </div>
             </div>
