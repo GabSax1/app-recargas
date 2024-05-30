@@ -58,43 +58,20 @@ class AppRecargas extends LitElement {
 
   render() {
     return html`
-<<<<<<< HEAD
     
 
      <div class="${this.currentPage === "inicio" ? " " : "hidden"}">
       <nav>
-=======
-      <div class="${this.currentPage === "inicio" ? " " : "hidden"}">
-        <nav></nav>
->>>>>>> 58eb3f988e05d2993d947d9838d0b252b436c019
         <!-- componente titulo -->
         <div>
           <h2>Para</h2>
           <h3>Selecciona un destino para la recarga movil</h3>
         </div>
-<<<<<<< HEAD
         <h3><eit-icon icon="add" @click="${() =>
           this.navigate("nuevoContacto")}"></eit-icon>Nuevo</h3>
         <h3><eit-icon icon="contacts" @click="${() =>
           this.navigate("listaContactos")}"></eit-icon>Contactos guardados</h3>
      </div>
-=======
-        <h3>
-          <boton-general
-            class="añadir"
-            @click="${() => this.navigate("nuevoContacto")}"
-            ><eit-icon icon="add"></eit-icon>Nuevo</boton-general
-          >
-        </h3>
-        <h3>
-          <boton-general
-            class="añadir"
-            @click="${() => this.navigate("listaContactos")}"
-            ><eit-icon icon="contacts"></eit-icon>Contactos guardados
-          </boton-general>
-        </h3>
-      </div>
->>>>>>> 58eb3f988e05d2993d947d9838d0b252b436c019
 
       <div class="${this.currentPage === "nuevoContacto" ? " " : "hidden"}">
         <!-- componente titulo -->
@@ -106,15 +83,8 @@ class AppRecargas extends LitElement {
 
       <div class="${this.currentPage === "listaContactos" ? " " : "hidden"}">
         <!-- componente titulo -->
-<<<<<<< HEAD
         <lista-contactos .contactos=${this.contactos} @navigate="${(e) => this.navigate(e.detail.page)}"></lista-contactos>
         
-=======
-        <lista-contactos .contactos=${this.contactos}></lista-contactos>
-        <boton-general @click="${() => this.navigate("inicio")}"
-          >Regresar</boton-general
-        >
->>>>>>> 58eb3f988e05d2993d947d9838d0b252b436c019
       </div>
     `;
   }
