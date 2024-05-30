@@ -25,4 +25,7 @@ export const stylesElementos = css`
     padding: 0;
     font-size: 14px;
   }
+  eit-icon{
+    top:0.1em;
+  }
 `;

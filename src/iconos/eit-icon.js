@@ -16,9 +16,8 @@ class EitIcon extends LitElement {
             display: inline-block;
             line-height: 0;
             position: relative;
-            top: 0.6em;
             margin-right: 30px;
-            
+            top:0.4em;
         }
         path{
             fill: var(--eit-icon-color,#f77574);
