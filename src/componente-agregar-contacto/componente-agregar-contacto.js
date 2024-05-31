@@ -6,6 +6,42 @@ export class ComponenteAgregarContacto extends LitElement {
       :host {
         display: block;
       }
+
+      .agregar{
+        padding-left: 40px;
+        padding-top: 25px;
+    }
+    .agregar__titulo{
+        font-family: "Inter", sans-serif;
+        color: var(-color--titulos);
+        text-transform: uppercase;
+        font-size: 38px;
+    }
+    .form{
+        
+    }
+    .form__titulo__input{
+        font-size: 25px;
+        font-weight: normal;
+        margin-bottom: 0;
+    }
+    .form__input{
+        width: 650px;
+        height: 49px;
+        font-size: 25px;
+        color: #828282;
+        margin-top: 6px;
+        margin-bottom:19px;
+    }
+    input{
+        background-color: #F1F1F1;
+        box-sizing: border-box;
+        padding: 5px;
+        padding-left: 16px;
+        border: 1px solid #E0E0E0;
+        border-radius: 8px;
+    }
+
     `,
   ];
 
@@ -30,7 +66,7 @@ export class ComponenteAgregarContacto extends LitElement {
     
         this.nuevoContacto = {
             phone: '',
-            company: '',
+            company: 'telcel',
             name: ''
         }
     
@@ -93,11 +129,11 @@ export class ComponenteAgregarContacto extends LitElement {
             .value="${this.nuevoContacto.company}"
             @input="${this._handleInput}"
           >
-            <option value="telcel">telcel</option>
-            <option value="movistar">movistar</option>
-            <option value="unefon">unefon</option>
-            <option value="bait">bait</option>
-            <option value="at&t">at&t</option>
+            <option class="uppercase" value="telcel">Telcel</option>
+            <option value="movistar">Movistar</option>
+            <option value="unefon">Unefon</option>
+            <option value="bait">Bait</option>
+            <option value="at&t">AT&T</option>
           </select>
 
           <p class="form__titulo__input">Nombre del destinatario</p>
