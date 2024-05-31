@@ -8,7 +8,7 @@ import "../recarga-component/recarga-component";
 class ListaContactos extends LitElement {
   static get properties() {
     return {
-      contactos: { type: Array },
+      contactos: { type: Array }, //propiedad para almacenar los datos del array principal
       currentView: { type: String },  // Propiedad para manejar la vista actual
       selectedContact: { type: Object }  // Propiedad para manejar el contacto seleccionado
     };
@@ -67,6 +67,7 @@ class ListaContactos extends LitElement {
   }
 
   renderList() {
+    /*Generación de la lista con el .map y usando el componente elemento-lista */
     return html`
       <p>Lista de contactos</p>
       ${this.contactos.map(contacto => html`
@@ -89,6 +90,7 @@ class ListaContactos extends LitElement {
   }
 
   emitEvent(page) {
+    //Esta funcion crea un nuevo evento para poder hacer la navegación desde el component padre
     this.dispatchEvent(new CustomEvent("navigate", {
       detail: { page },
       composed: true,
