@@ -101,12 +101,18 @@ class AppRecargas extends LitElement {
         <boton-general @click="${() => this.navigate("inicio")}">Regresar</boton-general>
       </div>
 
-      <div class="${this.currentPage === "listaContactos" ? "" : "hidden"}">
-      
-        <lista-contactos .contactos=${this.contactos} @click="${() => this.navigate("listaContactos")}"></lista-contactos>
+      <div class="${this.currentPage === "listaContactos" ? " " : "hidden"}">
+       <!--  evento error -->
+         <lista-contactos .contactos=${this.contactos} @navigate="${(e) => this.navigate(e.detail.page)}"></lista-contactos> 
+        <!-- <lista-contactos .contactos=${this.contactos} @click="${() => this.navigate("listaContactos")}"></lista-contactos> -->
       </div>
-      <!-- Bug de regreso -->
+
       
+      <!-- Bug de regreso -->
+      <div class="${this.currentPage === 'recargaCompleta' ? '' : 'hidden'}">
+        <recarga-completa></recarga-completa>
+        <button @click="${() => this.navigate('inicio')}">Volver a inicio</button>
+      </div>
      <!--  bug de regreso -->
     `;
   }

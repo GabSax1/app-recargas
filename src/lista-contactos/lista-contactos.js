@@ -59,10 +59,6 @@ class ListaContactos extends LitElement {
         <recarga-component .contact="${this.selectedContact}"></recarga-component>  <!-- Pasar el contacto seleccionado -->
         <button @click="${() => this.navigateList("listaContactos")}">Regresar</button>
       </div>
-      <div class="${this.currentPage === 'recargaCompleta' ? '' : 'hidden'}">
-        <recarga-completa></recarga-completa>
-        <button @click="${() => this.navigate('inicio')}">Volver a inicio</button>
-      </div>
     `;
   }
 
