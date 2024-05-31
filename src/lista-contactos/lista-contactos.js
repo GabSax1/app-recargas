@@ -56,6 +56,7 @@ class ListaContactos extends LitElement {
       </div>
       
       <div class="${this.currentView === "recargarContacto" ? "" : "hidden"}">
+      <componente-titulo titulo="Recarga telefónica"></componente-titulo>
         <recarga-component .contact="${this.selectedContact}"></recarga-component>  <!-- Pasar el contacto seleccionado -->
         <button @click="${() => this.navigateList("listaContactos")}">Regresar</button>
       </div>
