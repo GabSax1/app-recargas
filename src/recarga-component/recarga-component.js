@@ -87,7 +87,7 @@ class RecargaComponent extends LitElement {
 
   render() {
     return html`
-      <componente-titulo titulo="Recarga telefónica"></componente-titulo>
+      
       <div class="montos-container">
         <div class="monto-row">
           ${this.montos.slice(0, 3).map(monto => html`
