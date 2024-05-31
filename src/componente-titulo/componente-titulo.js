@@ -54,31 +54,17 @@ export class ComponenteTitulo extends LitElement {
         `
     ];
 
-
-    /**
-     * @description Define `titulo` es una propiedad de tipo cadena.
-     * @property {string} titulo - El título del componente.
-     */
     static get properties() {
         return {
             titulo: { type: String },
         };
     }
 
-    /**
-     * @description inicializa la propiedad `titulo` como una cadena vacía.
-     * @constructor
-     */
     constructor() {
         super();
         this.titulo = '';
     }
 
-
-    /**
-     * @description Genera y devuelve una plantilla HTML para el componente, incluyendo enlaces a fuentes y el encabezado con el título.
-     * @returns {TemplateResult} Una plantilla HTML que incluye los enlaces a las fuentes de Google y un encabezado con el título.
-     */
     render() {
         return html`
         <head>

@@ -23,6 +23,8 @@ class AppRecargas extends LitElement {
       max-width: 960px;
       margin: 0 auto;
       text-align: center;
+
+      -color--titulos: #21243D;
     }
     .hidden {
       display: none;
@@ -34,6 +36,32 @@ class AppRecargas extends LitElement {
       padding: 0.8rem;
       border-radius: 0.5rem;
     }
+
+
+
+    /* estilos para vista de inicio */
+    .inicio{
+      padding-left: 40px
+    }
+    .inicio__titulo{
+      font-family: "Inter", sans-serif;
+      color: var(-color--titulos);
+      text-transform: uppercase;
+      font-size: 38px;
+    }
+    .inicio__subtitulo{
+      color: var(-color--titulos);
+      font-weight: lighter;
+    }
+
+    .opciones{
+      padding-left: 40px
+    }
+    .opciones__text{
+      font-size: 40px;
+      font-weight: normal;
+    }
+
   `;
 
   constructor() {
@@ -60,19 +88,20 @@ class AppRecargas extends LitElement {
 
   render() {
     return html`
-    
-
      <div class="${this.currentPage === "inicio" ? " " : "hidden"}">
       <nav>
         <componente-titulo titulo="Recargas y paquetes"></componente-titulo>
-        <div>
-          <h2>Para</h2>
-          <h3>Selecciona un destino para la recarga movil</h3>
+
+        <div class="inicio">
+          <h2 class="inicio__titulo">Para</h2>
+          <h3 class="inicio__subtitulo">Selecciona un destino para la recarga movil</h3>
         </div>
-        <h3><eit-icon icon="add" @click="${() =>
-          this.navigate("nuevoContacto")}"></eit-icon>Nuevo</h3>
-        <h3><eit-icon icon="contacts" @click="${() =>
-          this.navigate("listaContactos")}"></eit-icon>Contactos guardados</h3>
+        <div class="opciones">
+          <h3 class="opciones__text"><eit-icon icon="add" @click="${() =>
+            this.navigate("nuevoContacto")}"></eit-icon>Nuevo</h3>
+          <h3 class="opciones__text"><eit-icon icon="contacts" @click="${() =>
+            this.navigate("listaContactos")}"></eit-icon>Contactos guardados</h3>
+        </div>
      </div>
 
       <div class="${this.currentPage === "nuevoContacto" ? " " : "hidden"}">
