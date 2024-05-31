@@ -1,10 +1,15 @@
 import { LitElement, html, css } from "lit-element";
-import "../src/nuevo-contacto";
+
 import "../src/lista-contactos/lista-contactos";
 import "../src/iconos/eit-icon";
 import "../src/boton/boton-general";
 import "../src/componente-titulo/componente-titulo";
 import "../src/componente-agregar-contacto/componente-agregar-contacto";
+import "../src/recarga-component/recarga-component";
+import "../src/recarga-completa/recarga-completa"
+
+
+
 
 class AppRecargas extends LitElement {
   static properties = {
@@ -86,6 +91,18 @@ class AppRecargas extends LitElement {
     ];
   }
 
+  // Nuevo: Añadir un event listener después de que el componente se haya actualizado por primera vez
+  firstUpdated() {
+    this.addEventListener('recarga-confirmada', this.handleRecargaConfirmada);
+  }
+
+  // Nuevo: Manejar el evento personalizado 'recarga-confirmada' y cambiar la vista a 'recargaCompleta'
+  handleRecargaConfirmada(e) {
+    const { monto } = e.detail;
+    console.log(`Recarga confirmada: ${monto}`);
+    this.currentPage = 'recargaCompleta';
+  }
+
   render() {
     return html`
      <div class="${this.currentPage === "inicio" ? " " : "hidden"}">
@@ -105,24 +122,39 @@ class AppRecargas extends LitElement {
      </div>
 
       <div class="${this.currentPage === "nuevoContacto" ? " " : "hidden"}">
-      <componente-titulo titulo="Nuevo Celular"></componente-titulo>
-        <!-- <nuevo-contacto></nuevo-contacto> -->
-        <componente-agregar-contacto></componente-agregar-contacto>
-        <boton-general @click="${() => this.navigate("inicio")}"
-          >Regresar</boton-general
-        >
+        <componente-titulo titulo="Nuevo Celular"></componente-titulo>
+        <componente-agregar-contacto @guardar-contacto="${this.guardarContacto}"></componente-agregar-contacto>
+        <boton-general @click="${() => this.navigate("inicio")}">Regresar</boton-general>
       </div>
 
       <div class="${this.currentPage === "listaContactos" ? " " : "hidden"}">
-      <componente-titulo titulo="Contactos guardados"></componente-titulo>
-        <lista-contactos .contactos=${this.contactos} @navigate="${(e) => this.navigate(e.detail.page)}"></lista-contactos>
-        
+       <!--  evento error -->
+         <lista-contactos .contactos=${this.contactos} @navigate="${(e) => this.navigate(e.detail.page)}"></lista-contactos> 
+        <!-- <lista-contactos .contactos=${this.contactos} @click="${() => this.navigate("listaContactos")}"></lista-contactos> -->
       </div>
+
+      
+      <!-- Bug de regreso -->
+      <div class="${this.currentPage === 'recargaCompleta' ? '' : 'hidden'}">
+        <recarga-completa></recarga-completa>
+        <button @click="${() => this.navigate('inicio')}">Volver a inicio</button>
+      </div>
+     <!--  bug de regreso -->
     `;
   }
+
   navigate(page) {
     this.currentPage = page;
+  }
+
+  guardarContacto(e) {
+    //Función para que se guarde la información del contacto y se actualice en la vista contactos guardados
+    const nuevoContacto = e.detail;
+    this.contactos = [...this.contactos, nuevoContacto];
+    this.navigate("listaContactos");
   }
 }
 
 customElements.define("app-recargas", AppRecargas);
+
+
