@@ -122,6 +122,7 @@ class AppRecargas extends LitElement {
   }
 
   guardarContacto(e) {
+    //Función para que se guarde la información del contacto y se actualice en la vista contactos guardados
     const nuevoContacto = e.detail;
     this.contactos = [...this.contactos, nuevoContacto];
     this.navigate("listaContactos");
