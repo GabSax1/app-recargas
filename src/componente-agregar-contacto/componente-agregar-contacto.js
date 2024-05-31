@@ -1,13 +1,13 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css } from "lit";
 
 export class ComponenteAgregarContacto extends LitElement {
-    static styles = [
-        css`
-            :host {
-                display: block;
-            }
-        `
-    ];
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+    `,
+  ];
 
     /**
      * @description `nuevoContacto` es una propiedad de tipo objeto.
@@ -85,28 +85,36 @@ export class ComponenteAgregarContacto extends LitElement {
                 @input="${this._handleInput}"
                 >
 
-                <p class="form__titulo__input">Compañia</p>
-                <select name="company" id="type" value="" class="form__input" 
-                @input="${this._handleInput}"
-                >
-                    <option value="telcel">telcel</option>
-                    <option value="movistar">movistar</option>
-                    <option value="unefon">unefon</option>
-                    <option value="bait">bait</option>
-                    <option value="at&t">at&t</option>
-                </select>
+          <p class="form__titulo__input">Compañia</p>
+          <select
+            name="company"
+            id="type"
+            class="form__input"
+            .value="${this.nuevoContacto.company}"
+            @input="${this._handleInput}"
+          >
+            <option value="telcel">telcel</option>
+            <option value="movistar">movistar</option>
+            <option value="unefon">unefon</option>
+            <option value="bait">bait</option>
+            <option value="at&t">at&t</option>
+          </select>
 
-                <p class="form__titulo__input">Nombre del destinatario</p>
-                <input type="text" name="name" class="form__input"
-                @click="${this._handleInput}"
-                >
-            </div>
-            <div class="agregar__button">
-                <!-- componente-boton -->
-                <button @click="${this._handleGuardar}">Guardar</button>
-            </div>
+          <p class="form__titulo__input">Nombre del destinatario</p>
+          <input
+            type="text"
+            name="name"
+            class="form__input"
+            .value="${this.nuevoContacto.name}"
+            @input="${this._handleInput}"
+          />
         </div>
-        `;
-    }
+        <div class="agregar__button">
+          <button @click="${this._handleGuardar}">Guardar</button>
+        </div>
+      </div>
+    `;
+  }
 }
-customElements.define('componente-agregar-contacto', ComponenteAgregarContacto);
+
+customElements.define("componente-agregar-contacto", ComponenteAgregarContacto);

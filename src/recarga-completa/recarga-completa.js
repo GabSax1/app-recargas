@@ -3,7 +3,7 @@ import "../iconos/eit-icon";
 
 class RecargaCompleta extends LitElement {
   static get properties() {
-    return { recargaRealizada: { type: Boolean } };
+    return { recargaRealizada: { type: Boolean } }; //propiedad para validar si la recarga se hizo correctamente
   }
 
   constructor() {
@@ -23,6 +23,7 @@ class RecargaCompleta extends LitElement {
     `;
   }
   render() {
+    //se utiliza un ternario para que cualdo la recarga se correcta se muestre el elemento Recarga realizada correctamente de lo contrario el elemento Recarga no realizada
     return html`
       ${this.recargaRealizada
         ? html`
