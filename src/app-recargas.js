@@ -60,26 +60,30 @@ class AppRecargas extends LitElement {
     }
 
     .opciones{
-      padding-left: 40px
+      padding-left: 40px;
+      display: flex;
+      flex-direction: column;
     }
     .opciones__text{
       font-size: 40px;
       font-weight: normal;
+      margin-bottom: 20px;
+      width: 500px;
+      padding-bottom: 1.5rem;
     }
-
-    .regresar__button{
-            display: inline-block;
-            padding: 5px 10px;
-            border: 1px solid #ccc;
-            background-color: white;
-            cursor: pointer;
-            text-align: center;
-            font-family: inherit;
-            font-size: 1rem;
-            margin-top:12px;
-            margin-left: 39px;
+    .opciones__text:first-child{
+      border-bottom: 0.5px solid gray;
     }
-
+    boton-general{
+      cursor: pointer;
+      background-color: transparent;
+      padding: 10px 20px;
+      font-size: 16px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      border-radius: 3px;
+      margin-left: 40px;
+      margin-top: 15px;
+    }
   `;
 
   constructor() {
@@ -119,7 +123,6 @@ class AppRecargas extends LitElement {
   render() {
     return html`
      <div class="${this.currentPage === "inicio" ? " " : "hidden"}">
-      <nav>
         <componente-titulo titulo="Recargas y paquetes"></componente-titulo>
 
         <div class="inicio">
@@ -127,17 +130,24 @@ class AppRecargas extends LitElement {
           <h3 class="inicio__subtitulo">Selecciona un destino para la recarga movil</h3>
         </div>
         <div class="opciones">
-          <h3 class="opciones__text"><eit-icon icon="add" @click="${() =>
-            this.navigate("nuevoContacto")}"></eit-icon>Nuevo</h3>
-          <h3 class="opciones__text"><eit-icon icon="contacts" @click="${() =>
-            this.navigate("listaContactos")}"></eit-icon>Contactos guardados</h3>
+          
+            <boton-general class="opciones__text"
+            @click="${() => this.navigate("nuevoContacto")}"
+          ><eit-icon icon="add"></eit-icon>Nuevo
+          </boton-general><!--Boton Componente-->
+
+            <boton-general
+            class="opciones__text"
+            @click="${() => this.navigate("listaContactos")}"
+          ><eit-icon icon="contacts"></eit-icon>Contactos guardados
+          </boton-general><!--Boton Componente-->
         </div>
      </div>
 
       <div class="${this.currentPage === "nuevoContacto" ? " " : "hidden"}">
         <componente-titulo titulo="Nuevo Celular"></componente-titulo>
         <componente-agregar-contacto @guardar-contacto="${this.guardarContacto}"></componente-agregar-contacto>
-        <boton-general class="regresar__button" @click="${() => this.navigate("inicio")}">Regresar</boton-general>
+        <boton-general @click="${() => this.navigate("inicio")}">Regresar</boton-general><!--Boton Componente-->
       </div>
 
       <div class="${this.currentPage === "listaContactos" ? " " : "hidden"}">
@@ -150,7 +160,7 @@ class AppRecargas extends LitElement {
       <!-- Bug de regreso -->
       <div class="${this.currentPage === 'recargaCompleta' ? '' : 'hidden'}">
         <recarga-completa></recarga-completa>
-        <button @click="${() => this.navigate('inicio')}">Volver a inicio</button>
+        <boton-general @click="${() => this.navigate('inicio')}">Volver al inicio</boton-general><!--Boton Componente-->
       </div>
      <!--  bug de regreso -->
     `;
