@@ -41,6 +41,10 @@ export class ComponenteAgregarContacto extends LitElement {
         border: 1px solid #E0E0E0;
         border-radius: 8px;
     }
+    __button-styled{
+      width: 650px;
+      height: 49px;
+    }
 
     `,
   ];
@@ -153,7 +157,7 @@ export class ComponenteAgregarContacto extends LitElement {
           />
         </div>
         <div class="agregar__button">
-          <button @click="${this._handleGuardar}">Guardar</button>
+          <button  class="__button-styled" @click="${this._handleGuardar}">Guardar</button>
         </div>
       </div>
     `;
