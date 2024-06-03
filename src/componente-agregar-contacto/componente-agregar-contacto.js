@@ -41,7 +41,18 @@ export class ComponenteAgregarContacto extends LitElement {
         border: 1px solid #E0E0E0;
         border-radius: 8px;
     }
-
+    boton-general{
+      cursor: pointer;
+      background-color: transparent;
+      padding: 10px 20px;
+      font-size: 16px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      border-radius: 3px;
+      margin-left: 130px;
+    }
+    .agregar__button{
+      margin-bottom: -28px;
+    }
     `,
   ];
 
@@ -146,7 +157,7 @@ export class ComponenteAgregarContacto extends LitElement {
           />
         </div>
         <div class="agregar__button">
-          <button @click="${this._handleGuardar}">Guardar</button>
+          <boton-general @click="${this._handleGuardar}">Guardar</boton-general>
         </div>
       </div>
     `;

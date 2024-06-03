@@ -1,7 +1,7 @@
 import { css } from "lit";
 
 export const styleBotonGeneral = css`
-  .general-style {
+  button{
     padding: 0.8rem;
     background: beige;
     

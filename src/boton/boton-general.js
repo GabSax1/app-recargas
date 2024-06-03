@@ -18,7 +18,7 @@ class BotonGeneral extends LitElement {
     type: '';
   }
   render() {
-    return html` <button class="${this.type}"></button> `;
+    return html` <button></button> `;
   }
 }
 

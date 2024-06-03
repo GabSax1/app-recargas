@@ -38,6 +38,15 @@ class ModificarComponent extends LitElement {
       button {
         margin-right: 8px;
       }
+      boton-general{
+      cursor: pointer;
+      background-color: transparent;
+      padding: 10px 20px;
+      font-size: 16px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      border-radius: 3px;
+      margin-right: 15px;
+      }
     `;
   }
 
@@ -76,8 +85,8 @@ class ModificarComponent extends LitElement {
           <option value="Virgin Mobile">Virgin Mobile</option>
         </select>
       </label>
-      <button @click="${this.handleSave}">Guardar</button>
-      <button @click="${() => this.dispatchEvent(new CustomEvent('cancel-modify', { bubbles: true, composed: true }))}">Cancelar</button>
+      <boton-general @click="${this.handleSave}">Guardar</boton-general>
+      <boton-general @click="${() => this.dispatchEvent(new CustomEvent('cancel-modify', { bubbles: true, composed: true }))}">Cancelar</boton-general>
     `;
   }
 }

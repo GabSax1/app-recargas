@@ -27,6 +27,14 @@ class ListaContactos extends LitElement {
       .hidden {
         display: none; // Clase para ocultar elementos
       }
+      boton-general{
+      cursor: pointer;
+      background-color: transparent;
+      padding: 10px 20px;
+      font-size: 16px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      border-radius: 3px;
+    }
     `;
   }
 
@@ -62,9 +70,7 @@ class ListaContactos extends LitElement {
           @recarga-confirmada="${() => this.navigateList("listaContactos")}"
         ></recarga-component>
         <!-- Pasar el contacto seleccionado -->
-        <button @click="${() => this.navigateList("listaContactos")}">
-          Regresar
-        </button>
+        <boton-general @click="${() => this.navigateList("listaContactos")}">Regresar</boton-general>
       </div>
     `;
   }
@@ -83,7 +89,7 @@ class ListaContactos extends LitElement {
           ></elemento-lista>
         `
       )}
-      <button @click="${() => this.emitEvent("inicio")}">Regresar</button>
+      <boton-general @click="${() => this.emitEvent("inicio")}">Regresar</boton-general>
     `;
   }
 
