@@ -67,6 +67,19 @@ class AppRecargas extends LitElement {
       font-weight: normal;
     }
 
+    .regresar__button{
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            background-color: white;
+            cursor: pointer;
+            text-align: center;
+            font-family: inherit;
+            font-size: 1rem;
+            margin-top:12px;
+            margin-left: 39px;
+    }
+
   `;
 
   constructor() {
@@ -124,7 +137,7 @@ class AppRecargas extends LitElement {
       <div class="${this.currentPage === "nuevoContacto" ? " " : "hidden"}">
         <componente-titulo titulo="Nuevo Celular"></componente-titulo>
         <componente-agregar-contacto @guardar-contacto="${this.guardarContacto}"></componente-agregar-contacto>
-        <boton-general @click="${() => this.navigate("inicio")}">Regresar</boton-general>
+        <boton-general class="regresar__button" @click="${() => this.navigate("inicio")}">Regresar</boton-general>
       </div>
 
       <div class="${this.currentPage === "listaContactos" ? " " : "hidden"}">
