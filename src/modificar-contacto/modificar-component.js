@@ -17,9 +17,9 @@ class ModificarComponent extends LitElement {
       :host {
         display: block;
         padding: 16px;
-        border: 1px solid #ccc;
         border-radius: 8px;
-        max-width: 400px;
+        width:100%;
+        max-width: 700px;
         margin: 0 auto;
       }
       .form-group {
@@ -47,6 +47,25 @@ class ModificarComponent extends LitElement {
       border-radius: 3px;
       margin-right: 15px;
       }
+      .inicio__titulo{
+        font-family: "Inter", sans-serif;
+        color: var(-color--titulos);
+        text-transform: uppercase;
+        font-size: 38px;
+      }
+      .form__input{
+        width: 650px;
+        height: 49px;
+        font-size: 25px;
+        color: #828282;
+        margin-top: 6px;
+        margin-bottom:19px;
+    }
+    .form__titulo__input{
+      font-size: 25px;
+      font-weight: normal;
+      margin-bottom: 0;
+  }
     `;
   }
 
@@ -65,24 +84,24 @@ class ModificarComponent extends LitElement {
 
   render() {
     return html`
-      <h1>Contacto</h1>
-      <label>
+      <h1 class="inicio__titulo">Contacto</h1>
+      <label class="form__titulo__input">
         Nombre:
-        <input type="text" name="name" .value="${this.contact.name}" @input="${this.handleInputChange}">
+        <input class="form__input" type="text" name="name" .value="${this.contact.name}" @input="${this.handleInputChange}">
       </label>
       <label>
         Teléfono:
-        <input type="text" name="phone" .value="${this.contact.phone}" @input="${this.handleInputChange}">
+        <input class="form__input" type="text" name="phone" .value="${this.contact.phone}" @input="${this.handleInputChange}">
       </label>
       <label>
         Compañía:
-        <select name="company" .value="${this.contact.company}" @change="${this.handleInputChange}">
-          <option value="">Seleccione una compañía</option>
+        <select  class="form__input"name="company" .value="${this.contact.company}" @change="${this.handleInputChange}">
+          <!-- <option value="">Seleccione una compañía</option> -->
           <option value="Movistar">Movistar</option>
           <option value="Telcel">Telcel</option>
           <option value="AT&T">AT&T</option>
           <option value="Unefon">Unefon</option>
-          <option value="Virgin Mobile">Virgin Mobile</option>
+          <option value="Virgin Mobile">Bait</option>
         </select>
       </label>
       <boton-general @click="${this.handleSave}">Guardar</boton-general>
