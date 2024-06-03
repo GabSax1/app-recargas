@@ -15,7 +15,11 @@ class ElementoLista extends LitElement {
   }
 
   static get styles() {
-    return [stylesElementos, css``]; //importación de estilos externos
+    return [stylesElementos, css`
+    .container{
+      width: 96%;
+    }
+    `]; //importación de estilos externos
   }
 
   render() {

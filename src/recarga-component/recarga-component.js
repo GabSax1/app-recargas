@@ -49,6 +49,9 @@ class RecargaComponent extends LitElement {
         cursor: pointer;
         transition: background-color 0.3s ease, transform 0.3s ease;
       }
+      .monto:hover{
+        transform: scale(1.1);
+      }
       .monto.selected {
         background-color: var(--main-header, #F87474); /* Utiliza la variable de color del título */
         font-weight: bold;

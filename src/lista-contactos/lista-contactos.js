@@ -35,6 +35,12 @@ class ListaContactos extends LitElement {
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       border-radius: 3px;
     }
+    .inicio__titulo{
+      font-family: "Inter", sans-serif;
+      color: #21243D;
+      text-transform: uppercase;
+      font-size: 38px;
+    }
     `;
   }
 
@@ -78,7 +84,7 @@ class ListaContactos extends LitElement {
   renderList() {
     /*Generación de la lista con el .map y usando el componente elemento-lista */
     return html`
-      <p>Lista de contactos</p>
+      <p class="inicio__titulo">Lista de contactos</p>
       ${this.contactos.map(
         (contacto) => html`
           <elemento-lista
