@@ -65,10 +65,16 @@ class RecargaComponent extends LitElement {
         border-radius: 8px;
         transition: background-color 0.3s ease;
       }
-      button:disabled {
-        background-color: #ffcc80;
-        cursor: not-allowed;
-      }
+      boton-general{
+      cursor: pointer;
+      background-color: #ffcc80;
+      cursor: not-allowed;
+      padding: 10px 20px;
+      font-size: 16px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      border-radius: 3px;
+      margin-top:20px;
+    }
     `;
   }
 
@@ -120,9 +126,7 @@ class RecargaComponent extends LitElement {
           `)}
         </div>
       </div>
-      <button @click="${this.confirmRecarga}" ?disabled="${this.selectedMonto === null}">
-        Recargar
-      </button>
+      <boton-general @click="${this.confirmRecarga}" ?disabled="${this.selectedMonto === null}">Recargar</boton-general>
     `;
   }
 }
