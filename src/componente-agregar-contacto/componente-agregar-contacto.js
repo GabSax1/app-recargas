@@ -17,9 +17,7 @@ export class ComponenteAgregarContacto extends LitElement {
         text-transform: uppercase;
         font-size: 38px;
     }
-    .form{
-        
-    }
+    
     .form__titulo__input{
         font-size: 25px;
         font-weight: normal;
