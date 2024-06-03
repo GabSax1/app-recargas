@@ -17,9 +17,7 @@ export class ComponenteAgregarContacto extends LitElement {
         text-transform: uppercase;
         font-size: 38px;
     }
-    .form{
-        
-    }
+    
     .form__titulo__input{
         font-size: 25px;
         font-weight: normal;
@@ -99,6 +97,13 @@ export class ComponenteAgregarContacto extends LitElement {
      */
     _handleGuardar(){
         console.log(this.nuevoContacto);
+        this.dispatchEvent(
+          new CustomEvent("guardar-contacto", {
+            detail: this.nuevoContacto,
+            bubbles: true,
+            composed: true,
+          })
+        );
         this._limpiarCampos();
     }
 
